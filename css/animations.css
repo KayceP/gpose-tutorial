@@ -1,0 +1,251 @@
+/* ================================================
+   FFXIV GPose Presentation - Background Animations
+   Floating crystals and stars effect
+   ================================================ */
+
+/* Background Container */
+.crystal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    background: 
+        radial-gradient(ellipse at 20% 80%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(15, 31, 58, 0.5) 0%, transparent 80%),
+        linear-gradient(180deg, #0a1628 0%, #0f1f3a 50%, #0a1628 100%);
+}
+
+/* ================================================
+   Starfield
+   ================================================ */
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Small stars layer */
+.stars::before {
+    background-image: 
+        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 50% 20%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 60% 80%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 80% 60%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 90% 25%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 5% 85%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 15% 65%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 25% 95%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 35% 15%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 45% 45%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 55% 75%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 65% 5%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 75% 35%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 85% 55%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 95% 90%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 3% 40%, rgba(255, 255, 255, 0.5), transparent);
+    background-size: 100% 100%;
+    animation: twinkle 8s ease-in-out infinite;
+}
+
+/* Medium stars layer */
+.stars::after {
+    background-image: 
+        radial-gradient(2px 2px at 15% 25%, rgba(240, 216, 144, 0.9), transparent),
+        radial-gradient(2px 2px at 35% 75%, rgba(78, 205, 196, 0.8), transparent),
+        radial-gradient(2px 2px at 55% 15%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 75% 55%, rgba(240, 216, 144, 0.7), transparent),
+        radial-gradient(2px 2px at 95% 35%, rgba(78, 205, 196, 0.8), transparent),
+        radial-gradient(2px 2px at 25% 85%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 45% 5%, rgba(240, 216, 144, 0.8), transparent),
+        radial-gradient(2px 2px at 65% 95%, rgba(78, 205, 196, 0.7), transparent),
+        radial-gradient(2px 2px at 85% 45%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 5% 65%, rgba(240, 216, 144, 0.9), transparent);
+    background-size: 100% 100%;
+    animation: twinkle 6s ease-in-out infinite reverse;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@keyframes twinkle-bright {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { 
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Additional twinkling stars layer */
+.stars::before {
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+.stars::after {
+    animation: twinkle-bright 5s ease-in-out infinite 1s;
+}
+
+/* Sparkle particles */
+.crystals::before,
+.crystals::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.crystals::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(200, 240, 255, 0.8) 40%, transparent 70%);
+    top: 20%;
+    left: 30%;
+    animation: sparkle 3s ease-in-out infinite;
+    box-shadow:
+        60vw 15vh 0 0 rgba(255, 255, 255, 0.9),
+        25vw 70vh 0 0 rgba(200, 240, 255, 0.8),
+        80vw 40vh 0 0 rgba(255, 255, 255, 0.7),
+        45vw 85vh 0 0 rgba(240, 216, 144, 0.8),
+        10vw 55vh 0 0 rgba(200, 240, 255, 0.9);
+}
+
+.crystals::after {
+    background: radial-gradient(circle, rgba(240, 216, 144, 1) 0%, rgba(255, 220, 150, 0.8) 40%, transparent 70%);
+    top: 65%;
+    right: 20%;
+    animation: sparkle 4s ease-in-out infinite 1.5s;
+    box-shadow:
+        -30vw -20vh 0 0 rgba(240, 216, 144, 0.9),
+        -50vw 10vh 0 0 rgba(255, 255, 255, 0.8),
+        20vw -30vh 0 0 rgba(200, 240, 255, 0.7),
+        -10vw 20vh 0 0 rgba(255, 255, 255, 0.8),
+        40vw -10vh 0 0 rgba(240, 216, 144, 0.9);
+}
+
+/* ================================================
+   Floating Crystals - FFXIV Mothercrystal Style
+   Elongated diamond/shard shapes with glowing cores
+   ================================================ */
+
+.crystals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Crystals container - no pseudo-elements needed, using child divs instead */
+
+/* Float animation base - individual shards have their own variants */
+
+@keyframes crystal-pulse {
+    0%, 100% {
+        opacity: 0.5;
+        filter: brightness(1) drop-shadow(0 0 15px rgba(78, 205, 196, 0.5));
+    }
+    50% {
+        opacity: 0.9;
+        filter: brightness(1.4) drop-shadow(0 0 40px rgba(150, 230, 255, 0.8));
+    }
+}
+
+/* Crystal glow aura effect */
+@keyframes crystal-aura {
+    0%, 100% {
+        box-shadow: 
+            0 0 30px rgba(78, 205, 196, 0.4),
+            0 0 60px rgba(78, 205, 196, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 50px rgba(150, 230, 255, 0.6),
+            0 0 100px rgba(78, 205, 196, 0.3),
+            0 0 150px rgba(78, 205, 196, 0.1);
+    }
+}
+
+/* ================================================
+   FFXIV Crystal Shard Elements
+   Elongated diamond shapes with glowing cores
+   ================================================ */
+
+.crystal-shard {
+    position: absolute;
+    /* Elongated diamond shape */
+    clip-path: polygon(50% 0%, 80% 35%, 50% 100%, 20% 35%);
+    pointer-events: none;
+}
+
+/* Floating sparkle motes */
+@keyframes float-sparkle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Individual shard styles and positions */
+.shard-1 {
+    width: 35px;
+    height: 100px;
+    bottom: 8%;
+    left: 5%;
+    background: 
+        radial-gradient(ellipse 70% 35% at 50% 42%, 
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(200, 245, 255, 0.85) 15%, 
+            rgba(120, 220, 230, 0.6) 35%, 
+            rgba(78, 205, 196, 0.4) 55%,
+            rgba(40, 140, 160, 0.2) 75%,
+            transparent 100%
+        );
+    box-shadow: 
+        0 0 40px rgba(78, 205, 196, 0.5),
+        0 0 80px rgba(120, 220, 255, 0.3),
+        inset 0 -20px 40px rgba(255, 255, 255, 0.2);
+    animation: float-shard-1 12s ease-in-out infinite, crystal-pulse 4s ease-in-out infinite;
+    opacity: 0.75;
+}
